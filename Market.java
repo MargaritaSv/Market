@@ -1,6 +1,6 @@
 package MarketTask;
 
-public class Market {
+public abstract class Market {
 	private String name;
 	private String address;
 
