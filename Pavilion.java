@@ -1,9 +1,14 @@
 package MarketTask.Markets;
 
 public class Pavilion extends Market {
+private  final int STATE_TAX = 50;
 
     public Pavilion(String name, String address, int area, int stateTax) {
         super(name, address,area,stateTax);
+    }
+
+    public  int getStateTax() {
+        return STATE_TAX;
     }
 
     @Override
@@ -16,7 +21,7 @@ public class Pavilion extends Market {
 
     @Override
     protected void setStateTax(int stateTax) {
-        if (stateTax != 50) {
+        if (stateTax != STATE_TAX) {
             throw new IllegalArgumentException("The state tax is not correct for the pavilion");
         }
         super.setStateTax(stateTax);

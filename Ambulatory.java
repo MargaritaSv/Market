@@ -5,39 +5,51 @@ import MarketTask.Markets.Market;
 import MarketTask.Provider;
 import MarketTask.TypeProviders;
 
-import java.util.ArrayList;
-
 public class Ambulatory extends Dealer {
 
-    private ArrayList<Market> markets;
-    private Provider provider;
+    public Ambulatory(String name, String address, double capital, Market[] markets, Provider[] provider) {
+        super(name, address, capital, markets, provider);
+    }
 
-    public Ambulatory(String name, String address, double capital, Provider provider) {
+    public Ambulatory(String name, String address, double capital, Provider[] provider) {
         super(name, address, capital);
-        this.markets = new ArrayList<>();
         this.setProvider(provider);
+        this.setMarkets(new Market[150]);
     }
 
-    private ArrayList<Market> getMarkets() {
-        return markets;
+    @Override
+    public void setMarkets(Market[] markets) {
+        super.setMarkets(markets);
     }
 
-    public void setMarkets(ArrayList<Market> markets) {
-        this.markets = markets;
-    }
-
-    public Provider getProvider() {
-        return provider;
-    }
-
-    public void setProvider(Provider provider) {
-        if (provider == null) {
+    @Override
+    public void setProvider(Provider[] provider) {
+        if (provider[0] == null) {
             throw new IllegalArgumentException("The name is not valid.");
         }
-        if (!(provider.getTypeProviders().equals(TypeProviders.PROVIDERTORETAIL))) {
+        if (!(provider[0].getTypeProviders().equals(TypeProviders.PROVIDERTORETAIL))) {
             throw new IllegalArgumentException("This type provider is not for You.");
         }
+        super.setProvider(provider);
+    }
 
-        this.provider = provider;
+
+    @Override
+    public void payStateTax() {
+        if (this.getCapital() <= 0.0) {
+            throw new IllegalArgumentException("The capital is not enough.");
+        }
+
+        for (int i = 0; i < markets.length; i++) {
+
+            if (markets[i].getStateTax() > this.getCapital()) {
+                if (this.getCapital() < 0.0) {
+                    this.setCapital(0.0);
+                }
+                throw new IllegalArgumentException("The capital is not enough.");
+            }
+
+            this.setCapital((this.getCapital() - (double) markets[i].getStateTax()));
+        }
     }
 }

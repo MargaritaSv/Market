@@ -7,31 +7,41 @@ import MarketTask.Markets.PavilionStreet;
 import MarketTask.Provider;
 
 public class ET extends Dealer {
-    private Provider[] providers;
-    private Market[] market;
+
+    public ET(String name, String address, double capital, Market[] market, Provider[] providers) {
+        super(name, address, capital, market, providers);
+        this.setMarkets(market);
+        this.setProvider(providers);
+    }
 
     public ET(String name, String address, double capital, Market[] market) {
         super(name, address, capital);
-        this.providers = new Provider[6];
-        this.setMarket(market);
+        this.setMarkets(market);
+        this.setProvider(new Provider[5]);
     }
 
-    public Market getMarket() {
-        return market[0];
-    }
-
-    public void setMarket(Market[] market) {
-        if (market[0] == null || market.length > 1) {
+    @Override
+    public void setMarkets(Market[] markets) {
+        if (markets[0] == null || markets.length > 1) {
             System.out.println("The market is not correct.");
         }
 
-        if (!(market[0] instanceof Pavilion) && !(market[0] instanceof PavilionStreet)) {
+        if (!(markets[0] instanceof Pavilion) && !(markets[0] instanceof PavilionStreet)) {
             System.out.println("The market is not possible");
         }
-        this.market = market;
+        super.setMarkets(markets);
     }
 
-    public void setProviders(Provider[] providers) {
-        this.providers = providers;
+    @Override
+    public void setProvider(Provider[] provider) {
+        if (provider.length > 5) {
+            System.out.println("ET has 5 providers");
+        }
+        super.setProvider(provider);
+    }
+
+    @Override
+    public void payStateTax() {
+
     }
 }

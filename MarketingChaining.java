@@ -6,28 +6,36 @@ import MarketTask.Provider;
 
 public class MarketingChaining extends Dealer {
 
-    private Market[] markets;
-    private Provider[] providers;
+    public MarketingChaining(String name, String address, double capital, Market[] markets, Provider[] providers) {
+        super(name, address, capital, markets, providers);
+
+    }
 
     public MarketingChaining(String name, String address, double capital) {
         super(name, address, capital);
         this.markets = new Market[12];
-        this.providers = new Provider[6];
+        this.provider = new Provider[6];
     }
 
-    public Provider[] getProviders() {
-        return providers;
-    }
-
-    public void setProviders(Provider[] providers) {
-        this.providers = providers;
-    }
-
-    public Market[] getMarkets() {
-        return markets;
-    }
-
+    @Override
     public void setMarkets(Market[] markets) {
-        this.markets = markets;
+        if (markets.length > 12) {
+            throw new IllegalArgumentException("Marketing chaining can have only 12 markets.");
+        }
+
+        super.setMarkets(markets);
+    }
+
+    @Override
+    public void setProvider(Provider[] provider) {
+        if (provider.length > 6) {
+            throw new IllegalArgumentException("Marketing chaining can have only 6 providers.");
+        }
+        super.setProvider(provider);
+    }
+
+    @Override
+    public void payStateTax() {
+
     }
 }

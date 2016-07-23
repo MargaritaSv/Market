@@ -13,6 +13,10 @@ public abstract class Market {
         this.setStateTax(stateTax);
     }
 
+    public int getStateTax() {
+        return stateTax;
+    }
+
     public String getName() {
         return name;
     }
