@@ -36,6 +36,20 @@ public class MarketingChaining extends Dealer {
 
     @Override
     public void payStateTax() {
+        if (this.getCapital() <= 0.0) {
+            throw new IllegalArgumentException("The capital is not enough.");
+        }
 
+        for (int i = 0; i < markets.length; i++) {
+
+            if (markets[i].getStateTax() > this.getCapital()) {
+                if (this.getCapital() < 0.0) {
+                    this.setCapital(0.0);
+                }
+                throw new IllegalArgumentException("The capital is not enough.");
+            }
+
+            this.setCapital((this.getCapital() - (double) markets[i].getStateTax()));
+        }
     }
 }

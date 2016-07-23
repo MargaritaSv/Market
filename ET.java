@@ -42,6 +42,11 @@ public class ET extends Dealer {
 
     @Override
     public void payStateTax() {
+        double taxForMarket = (double) markets[0].getStateTax();
+        if (taxForMarket > this.getCapital()) {
+            throw new IllegalArgumentException("The capital is not enough.");
 
+        }
+        this.setCapital((this.getCapital() - (double) markets[0].getStateTax()));
     }
 }
