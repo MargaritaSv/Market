@@ -1,15 +1,20 @@
 package MarketTask;
 
+import java.util.LinkedHashMap;
+
 public class Provider extends BaseInfo {
 
     private int workingHours;
     private TypeProviders typeProviders;
+    private LinkedHashMap<String, Integer> products;
 
     public Provider(String name, String address, int workingHours, TypeProviders typeProviders) {
         super(name, address);
         this.setWorkingHours(workingHours);
-        this.typeProviders=typeProviders;
+        this.typeProviders = typeProviders;
+        this.products = new LinkedHashMap<>();
     }
+
 
     public int getWorkingHours() {
         return workingHours;
@@ -24,5 +29,9 @@ public class Provider extends BaseInfo {
 
     public TypeProviders getTypeProviders() {
         return typeProviders;
+    }
+
+    public void setProducts(LinkedHashMap<String, Integer> products) {
+        this.products = products;
     }
 }
