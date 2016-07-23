@@ -25,14 +25,13 @@ public class Main {
         Magazine patatos = new Magazine("Plodove", "Plovdiv", 70, 150);
 
 
-
         Dealer georgi = new MarketingChaining("Georgy", "Pozitano 25", 250.0);
-        ET magi = new ET("Daisy", "Sofiq ", 700.00);
+        ET magi = new ET("Daisy", "Sofiq ", 700.00,new Market[]{pavilion});
 
         MarketingChaining billa = new MarketingChaining("Billa", "Plovdiv", 7000.0);
-        billa.setMarkets(new Market[]{fruits,vegetables,patatos} );
+        billa.setMarkets(new Market[]{fruits, vegetables, patatos});
 
-        magi.setMarket(pavilion);
+      //  magi.setMarket(new Market[]{pavilion});
 
         Ambulatory zlati = new Ambulatory("Zlati", "Lovech", 89.0, katq);
     }
