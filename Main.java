@@ -9,9 +9,13 @@ import MarketTask.Markets.Pavilion;
 import MarketTask.Markets.PavilionStreet;
 
 import java.util.LinkedHashMap;
-import java.util.Random;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Main {
+    private static final int MIN_PRICE_OF_PRODUCTS = 1;
+    private static final int MAX_PRICE_OF_PRODUCTS = 15;
     private static final int MIN_NUMBER_OF_PRODUCTS = 1;
     private static final int MAX_NUMBER_OF_PRODUCTS = 15;
 
@@ -44,6 +48,14 @@ public class Main {
 
         LinkedHashMap<String, Integer> productsProvider = makeProducts();
         stefan.setProducts(productsProvider);
+
+
+        productsProvider = makeProducts();
+        katq.setProducts(productsProvider);
+        georgi.setProvider(new Provider[]{stefan, katq});
+
+        System.out.println(katq.getProducts());
+        //   oborot(georgi, katq);
     }
 
     public static LinkedHashMap<String, Integer> makeProducts() {
@@ -53,10 +65,31 @@ public class Main {
 
 
         for (int i = 0; i < products.length; i++) {
-            int rnd = MIN_NUMBER_OF_PRODUCTS + (int) (Math.random() * MAX_NUMBER_OF_PRODUCTS);
+            int rnd = MIN_PRICE_OF_PRODUCTS + (int) (Math.random() * MAX_PRICE_OF_PRODUCTS);
             productPrice.put(products[i], rnd);
         }
 
         return productPrice;
+    }
+
+    public static void oborot(Dealer dealer, Provider provider) {
+        int sum = 0;
+        int rnd = MIN_NUMBER_OF_PRODUCTS + (int) (Math.random() * MAX_NUMBER_OF_PRODUCTS);
+
+        for (int i = 0; i < rnd; i++) {
+//TODO: take products            
+        }
+
+        if (provider.getTypeProviders().equals(TypeProviders.PROVIDERTORETAIL)) {
+            int afterDiscount = sum - (int) (sum * 0.15);
+            sum = afterDiscount;
+        }
+
+        double halfCapacity = dealer.getCapital() * 0.50;
+        if ((double) sum > halfCapacity) {
+            System.out.println("The money for this products is not enough.");
+        } else {
+            dealer.setCapital(dealer.getCapital() - sum);
+        }
     }
 }
