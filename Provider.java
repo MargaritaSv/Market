@@ -1,6 +1,7 @@
 package MarketTask;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Provider extends BaseInfo {
 
@@ -38,12 +39,21 @@ public class Provider extends BaseInfo {
         this.products = products;
     }
 
+    private String printProducts() {
+        StringBuilder sB = new StringBuilder();
+        sB.append("Products:");
+        for (Map.Entry<String, Integer> pr : products.entrySet()) {
+            sB.append(pr.getKey()).append(" - ").append(pr.getValue());
+            sB.append(System.lineSeparator());
+        }
+        return sB.toString();
+    }
+
     @Override
     public String toString() {
-        return "Provider:" + super.toString()+
+        String listProducts = printProducts();
+        return "Provider:" + super.toString() +
                 "workingHours=" + workingHours +
-                ", typeProviders=" + typeProviders +
-                ", products=" + products +
-                '}';
+                ", typeProviders=" + typeProviders + listProducts;
     }
 }

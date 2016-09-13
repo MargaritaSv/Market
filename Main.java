@@ -32,6 +32,13 @@ public class Main {
             providers[i] = provider;
         }
 
+        //every provider gets some products
+        LinkedHashMap<String, Integer> someProducts;
+        for (int i = 0; i < providers.length; i++) {
+            someProducts = makeProducts();
+            providers[i].setProducts(someProducts);
+        }
+
         for (Provider pr : providers) {
             System.out.println(pr.toString());
         }
@@ -61,6 +68,7 @@ public class Main {
         Dealer georgi = new MarketingChaining("Georgy", "Pozitano 25", 3000.0);
 
 //4
+
 
 
 /*
