@@ -2,14 +2,11 @@ package MarketTask.Markets;
 
 public class Magazine extends Market {
 
-    private  final int STATE_TAX = 150;
+    private final int STATE_TAX = 150;
 
-    public Magazine(String name, String address, int area, int stateTax) {
-        super(name, address, area, stateTax);
-    }
+    public Magazine(String name, String address, int area) {
+        super(name, address, area);
 
-    public  int getStateTax() {
-        return STATE_TAX;
     }
 
     @Override
@@ -21,10 +18,7 @@ public class Magazine extends Market {
     }
 
     @Override
-    public void setStateTax(int stateTax) {
-        if (stateTax != STATE_TAX) {
-            throw new IllegalArgumentException("The state tax is not correct for the pavilion");
-        }
-        super.setStateTax(stateTax);
+    public int addStateTax() {
+        return STATE_TAX;
     }
 }

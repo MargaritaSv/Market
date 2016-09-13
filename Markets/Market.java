@@ -5,12 +5,12 @@ import MarketTask.BaseInfo;
 public abstract class Market extends BaseInfo {
 
     protected int area;
-    protected int stateTax;
+    private int stateTax;
 
-    public Market(String name, String address, int area, int stateTax) {
+    public Market(String name, String address, int area) {
         super(name, address);
         this.setArea(area);
-        this.setStateTax(stateTax);
+        this.stateTax = addStateTax();
     }
 
     public int getStateTax() {
@@ -21,7 +21,10 @@ public abstract class Market extends BaseInfo {
         this.area = area;
     }
 
-    protected void setStateTax(int stateTax) {
-        this.stateTax = stateTax;
+    public abstract int addStateTax();
+
+    @Override
+    public String toString() {
+        return super.toString() + " area: " + this.area + " tax: " + this.stateTax;
     }
 }

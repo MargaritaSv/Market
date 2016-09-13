@@ -41,13 +41,17 @@ public class Main {
         Market market;
         for (int i = 0; i < 20; i++) {
             if (Math.random() > 0.66) {
-                market = new Magazine("Market", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(10)+100, 150);
+                market = new Magazine("Market", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(10)+100);
             } else if (Math.random() > 0.33) {
-                market = new Pavilion("Сергия", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(2)+10, 50);
+                market = new Pavilion("Сергия", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(2)+10);
             } else {
-                market = new PavilionStreet("Bydka", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(4)+6, 50);
+                market = new PavilionStreet("Bydka", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(4)+6);
             }
             markets[i] = market;
+        }
+
+        for (Market pr : markets) {
+            System.out.println(pr.toString());
         }
 
 

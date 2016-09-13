@@ -34,6 +34,6 @@ public abstract class BaseInfo {
 
     @Override
     public String toString() {
-        return this.name + ", address: " + this.address + System.lineSeparator();
+        return this.name + ", address: " + this.address + "; ";
     }
 }
