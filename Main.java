@@ -60,6 +60,7 @@ public class Main {
         ET magi = new ET("Daisy", "Sofiq ", 700.00);
         Dealer georgi = new MarketingChaining("Georgy", "Pozitano 25", 3000.0);
 
+//4
 
 
 /*

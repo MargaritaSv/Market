@@ -7,7 +7,9 @@ import MarketTask.Markets.Market;
  * Created by Magi on 23.7.2016 г..
  */
 public interface IDealer {
-    void payStateTax();
+    public abstract void payStateTax();
 
-    //void oborot();
+    public abstract void takeTurnoverOfShop();
+
+    public abstract void makeOrder();
 }

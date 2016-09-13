@@ -32,7 +32,7 @@ public class MarketingChaining extends Dealer {
         }
         super.setProvider(provider);
     }
-
+/*
     @Override
     public void payStateTax() {
         if (this.getCapital() <= 0.0) {
@@ -51,4 +51,5 @@ public class MarketingChaining extends Dealer {
             this.setCapital((this.getCapital() - (double) markets[i].getStateTax()));
         }
     }
+    */
 }

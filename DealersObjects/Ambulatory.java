@@ -37,7 +37,7 @@ public class Ambulatory extends Dealer {
         super.setProvider(provider);
     }
 
-
+/*
     @Override
     public void payStateTax() {
         if (this.getCapital() <= 0.0) {
@@ -56,4 +56,5 @@ public class Ambulatory extends Dealer {
             this.setCapital((this.getCapital() - (double) markets[i].getStateTax()));
         }
     }
+    */
 }

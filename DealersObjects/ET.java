@@ -43,7 +43,7 @@ public class ET extends Dealer {
         }
         super.setProvider(provider);
     }
-
+/*
     @Override
     public void payStateTax() {
         double taxForMarket = (double) markets[0].getStateTax();
@@ -53,4 +53,5 @@ public class ET extends Dealer {
         }
         this.setCapital((this.getCapital() - (double) markets[0].getStateTax()));
     }
+    */
 }
