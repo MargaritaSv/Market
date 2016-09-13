@@ -8,10 +8,7 @@ import MarketTask.Markets.Market;
 import MarketTask.Markets.Pavilion;
 import MarketTask.Markets.PavilionStreet;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     private static final int MIN_PRICE_OF_PRODUCTS = 1;
@@ -21,12 +18,25 @@ public class Main {
 
     public static void main(String[] args) {
 
+//1
+        final String[] names = {"Stefan", "Katq", "Elena", "Georgy", "Magy"};
+        final String[] cities = {"Burgas", "Sofiq", "Plovdiv", "Ryse", "Kalofer"};
 
-        Provider stefan = new Provider("Stefan", "Kaspichan", 6, TypeProviders.PROVIDERTORETAIL);
-        Provider katq = new Provider("Katq", "Burgas", 6, TypeProviders.PROVIDERTORETAIL);
-        Provider terry = new Provider("Terry", "Varna", 4, TypeProviders.WHOLESALESUPPLIER);
+        Provider[] providers = new Provider[10];
+        Provider provider;
+        for (int i = 0; i < providers.length; i++) {
+            provider = new Provider(names[new Random().nextInt(names.length - 1)],
+                    cities[new Random().nextInt(cities.length - 1)],
+                    new Random().nextInt(23) + 1,
+                    new Random().nextBoolean() ? TypeProviders.PROVIDERTORETAIL : TypeProviders.WHOLESALESUPPLIER);
+            providers[i] = provider;
+        }
 
+        for (Provider pr : providers) {
+            System.out.println(pr.toString());
+        }
 
+        //2
         Pavilion pavilion = new Pavilion("Сергия", "София ж.к. Дружба", 5, 50);
         PavilionStreet pavilion1 = new PavilionStreet("Сергия1", "София ж.к. Люлин", 6, 50);
         Magazine magazine = new Magazine("Kozmetika", "Sharo 34", 80, 150);
@@ -44,7 +54,7 @@ public class Main {
         Ambulatory zlati = new Ambulatory("Zlati", "Lovech", 8900.0, new Provider[]{katq});
         zlati.setMarkets(new Market[]{fruits, magazine, fish, pavilion});
         zlati.payStateTax();
-        // System.out.println(zlati.getCapital());
+        System.out.println(zlati.getCapital());
 
         LinkedHashMap<String, Integer> productsProvider = makeProducts();
         stefan.setProducts(productsProvider);
@@ -55,7 +65,7 @@ public class Main {
         georgi.setProvider(new Provider[]{stefan, katq});
 
         System.out.println(katq.getProducts());
-        //   oborot(georgi, katq);
+        oborot(georgi, katq);
     }
 
     public static LinkedHashMap<String, Integer> makeProducts() {
@@ -77,7 +87,7 @@ public class Main {
         int rnd = MIN_NUMBER_OF_PRODUCTS + (int) (Math.random() * MAX_NUMBER_OF_PRODUCTS);
 
         for (int i = 0; i < rnd; i++) {
-//TODO: take products            
+//TODO: take products
         }
 
         if (provider.getTypeProviders().equals(TypeProviders.PROVIDERTORETAIL)) {
