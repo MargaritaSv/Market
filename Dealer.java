@@ -37,6 +37,4 @@ public abstract class Dealer extends BaseInfo implements IDealer {
     public void setProvider(Provider[] provider) {
         this.provider = provider;
     }
-
-
 }

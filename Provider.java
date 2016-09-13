@@ -15,7 +15,6 @@ public class Provider extends BaseInfo {
         this.products = new LinkedHashMap<>();
     }
 
-
     public int getWorkingHours() {
         return workingHours;
     }
@@ -31,7 +30,20 @@ public class Provider extends BaseInfo {
         return typeProviders;
     }
 
+    public LinkedHashMap<String, Integer> getProducts() {
+        return products;
+    }
+
     public void setProducts(LinkedHashMap<String, Integer> products) {
         this.products = products;
+    }
+
+    @Override
+    public String toString() {
+        return "Provider:" + super.toString()+
+                "workingHours=" + workingHours +
+                ", typeProviders=" + typeProviders +
+                ", products=" + products +
+                '}';
     }
 }

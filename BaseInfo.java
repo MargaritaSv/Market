@@ -5,7 +5,6 @@ public abstract class BaseInfo {
     private String address;
 
     public BaseInfo(String name, String address) {
-        super();
         this.setName(name);
         this.setAddress(address);
     }
@@ -31,5 +30,10 @@ public abstract class BaseInfo {
         }
 
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return this.name + ", address: " + this.address + System.lineSeparator();
     }
 }

@@ -37,13 +37,30 @@ public class Main {
         }
 
         //2
+        Market[] markets = new Market[20];
+        Market market;
+        for (int i = 0; i < 20; i++) {
+            if (Math.random() > 0.66) {
+                market = new Magazine("Market", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(10)+100, 150);
+            } else if (Math.random() > 0.33) {
+                market = new Pavilion("Сергия", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(2)+10, 50);
+            } else {
+                market = new PavilionStreet("Bydka", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(4)+6, 50);
+            }
+            markets[i] = market;
+        }
+
+
+/*
         Pavilion pavilion = new Pavilion("Сергия", "София ж.к. Дружба", 5, 50);
         PavilionStreet pavilion1 = new PavilionStreet("Сергия1", "София ж.к. Люлин", 6, 50);
         Magazine magazine = new Magazine("Kozmetika", "Sharo 34", 80, 150);
         Magazine fruits = new Magazine("Plodove", "Plovdiv", 70, 150);
         Magazine vegetables = new Magazine("Plodove", "Plovdiv", 70, 150);
         Magazine fish = new Magazine("Plodove", "Plovdiv", 70, 150);
+*/
 
+/*
 
         Dealer georgi = new MarketingChaining("Georgy", "Pozitano 25", 250.0);
         ET magi = new ET("Daisy", "Sofiq ", 700.00, new Market[]{pavilion});
@@ -66,6 +83,7 @@ public class Main {
 
         System.out.println(katq.getProducts());
         oborot(georgi, katq);
+  */
     }
 
     public static LinkedHashMap<String, Integer> makeProducts() {
