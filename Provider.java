@@ -41,9 +41,9 @@ public class Provider extends BaseInfo {
 
     private String printProducts() {
         StringBuilder sB = new StringBuilder();
-        sB.append("Products:");
+        sB.append(System.lineSeparator()).append("Products:").append(System.lineSeparator());
         for (Map.Entry<String, Integer> pr : products.entrySet()) {
-            sB.append(pr.getKey()).append(" - ").append(pr.getValue());
+            sB.append(pr.getKey()).append(" - ").append(pr.getValue()).append("$");
             sB.append(System.lineSeparator());
         }
         return sB.toString();
@@ -52,8 +52,6 @@ public class Provider extends BaseInfo {
     @Override
     public String toString() {
         String listProducts = printProducts();
-        return "Provider:" + super.toString() +
-                "workingHours=" + workingHours +
-                ", typeProviders=" + typeProviders + listProducts;
+        return "Provider:" + super.toString() + "working hours-" + workingHours + ", type: " + typeProviders + listProducts;
     }
 }

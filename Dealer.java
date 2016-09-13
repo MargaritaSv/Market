@@ -1,6 +1,11 @@
 package MarketTask;
 
+import MarketTask.BaseInfo;
+import MarketTask.IDealer;
 import MarketTask.Markets.Market;
+import MarketTask.Provider;
+
+import java.util.Arrays;
 
 public abstract class Dealer extends BaseInfo implements IDealer {
     private double capital;
@@ -34,7 +39,7 @@ public abstract class Dealer extends BaseInfo implements IDealer {
         this.markets = markets;
     }
 
-    public void setProvider(Provider[] provider) {
+    public void setProvider(Provider... provider) {
         this.provider = provider;
     }
 
@@ -65,5 +70,12 @@ public abstract class Dealer extends BaseInfo implements IDealer {
 
             this.setCapital((this.getCapital() - (double) markets[i].getStateTax()));
         }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "capital=" + capital + System.lineSeparator() +
+                "Markets=" + Arrays.toString(markets) + System.lineSeparator() +
+                "Provider:" + Arrays.toString(provider);
     }
 }

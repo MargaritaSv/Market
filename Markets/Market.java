@@ -25,6 +25,6 @@ public abstract class Market extends BaseInfo {
 
     @Override
     public String toString() {
-        return super.toString() + " area: " + this.area + " tax: " + this.stateTax;
+        return super.toString() + " area: " + this.area + " with state tax: " + this.stateTax + "$\n";
     }
 }

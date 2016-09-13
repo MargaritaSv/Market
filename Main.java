@@ -39,10 +39,6 @@ public class Main {
             providers[i].setProducts(someProducts);
         }
 
-        for (Provider pr : providers) {
-            System.out.println(pr.toString());
-        }
-
         //2
         Market[] markets = new Market[20];
         Market market;
@@ -57,43 +53,29 @@ public class Main {
             markets[i] = market;
         }
 
-        for (Market pr : markets) {
-            System.out.println(pr.toString());
-        }
-
-
-//3
+        //3
         Ambulatory zlati = new Ambulatory("Zlati", "Lovech", 100.0);
         ET magi = new ET("Daisy", "Sofiq ", 700.00);
         Dealer georgi = new MarketingChaining("Georgy", "Pozitano 25", 3000.0);
 
 //4
 
+        //create dealers with market/s
+        while (true) {
+            Provider rndProvider = providers[new Random().nextInt(providers.length - 1)];
+            if (rndProvider.getTypeProviders().equals(TypeProviders.PROVIDERTORETAIL)) {
+                zlati.setProvider(rndProvider);
+                break;
+            }
+        }
 
+        Market[] marketsForZlati = new Market[markets.length / 2];
+        for (int i = 0; i < marketsForZlati.length; i++) {
+            marketsForZlati[i] = markets[i];
+        }
 
-/*
-        Dealer georgi = new MarketingChaining("Georgy", "Pozitano 25", 250.0);
-        ET magi = new ET("Daisy", "Sofiq ", 700.00, new Market[]{pavilion});
-
-        MarketingChaining billa = new MarketingChaining("Billa", "Plovdiv", 3000.0);
-        billa.setMarkets(new Market[]{fruits, vegetables, fish});
-
-        Ambulatory zlati = new Ambulatory("Zlati", "Lovech", 8900.0, new Provider[]{katq});
-        zlati.setMarkets(new Market[]{fruits, magazine, fish, pavilion});
-        zlati.payStateTax();
-        System.out.println(zlati.getCapital());
-
-        LinkedHashMap<String, Integer> productsProvider = makeProducts();
-        stefan.setProducts(productsProvider);
-
-
-        productsProvider = makeProducts();
-        katq.setProducts(productsProvider);
-        georgi.setProvider(new Provider[]{stefan, katq});
-
-        System.out.println(katq.getProducts());
-        oborot(georgi, katq);
-*/
+        zlati.setMarkets(marketsForZlati);
+        System.out.println(zlati.toString());
     }
 
     public static LinkedHashMap<String, Integer> makeProducts() {
@@ -130,4 +112,5 @@ public class Main {
             dealer.setCapital(dealer.getCapital() - sum);
         }
     }
+
 }
