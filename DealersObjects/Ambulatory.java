@@ -17,6 +17,10 @@ public class Ambulatory extends Dealer {
         this.setMarkets(new Market[150]);
     }
 
+    public Ambulatory(String name, String address, double capital) {
+        super(name, address, capital);
+    }
+
     @Override
     public void setMarkets(Market[] markets) {
         super.setMarkets(markets);
@@ -52,7 +56,4 @@ public class Ambulatory extends Dealer {
             this.setCapital((this.getCapital() - (double) markets[i].getStateTax()));
         }
     }
-
-
-
 }

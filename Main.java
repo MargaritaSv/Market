@@ -41,11 +41,11 @@ public class Main {
         Market market;
         for (int i = 0; i < 20; i++) {
             if (Math.random() > 0.66) {
-                market = new Magazine("Market", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(10)+100);
+                market = new Magazine("Market", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(10) + 100);
             } else if (Math.random() > 0.33) {
-                market = new Pavilion("Сергия", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(2)+10);
+                market = new Pavilion("Сергия", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(2) + 10);
             } else {
-                market = new PavilionStreet("Bydka", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(4)+6);
+                market = new PavilionStreet("Bydka", cities[new Random().nextInt(cities.length - 1)], new Random().nextInt(4) + 6);
             }
             markets[i] = market;
         }
@@ -55,21 +55,18 @@ public class Main {
         }
 
 
-/*
-        Pavilion pavilion = new Pavilion("Сергия", "София ж.к. Дружба", 5, 50);
-        PavilionStreet pavilion1 = new PavilionStreet("Сергия1", "София ж.к. Люлин", 6, 50);
-        Magazine magazine = new Magazine("Kozmetika", "Sharo 34", 80, 150);
-        Magazine fruits = new Magazine("Plodove", "Plovdiv", 70, 150);
-        Magazine vegetables = new Magazine("Plodove", "Plovdiv", 70, 150);
-        Magazine fish = new Magazine("Plodove", "Plovdiv", 70, 150);
-*/
+//3
+        Ambulatory zlati = new Ambulatory("Zlati", "Lovech", 100.0);
+        ET magi = new ET("Daisy", "Sofiq ", 700.00);
+        Dealer georgi = new MarketingChaining("Georgy", "Pozitano 25", 3000.0);
+
+
 
 /*
-
         Dealer georgi = new MarketingChaining("Georgy", "Pozitano 25", 250.0);
         ET magi = new ET("Daisy", "Sofiq ", 700.00, new Market[]{pavilion});
 
-        MarketingChaining billa = new MarketingChaining("Billa", "Plovdiv", 7000.0);
+        MarketingChaining billa = new MarketingChaining("Billa", "Plovdiv", 3000.0);
         billa.setMarkets(new Market[]{fruits, vegetables, fish});
 
         Ambulatory zlati = new Ambulatory("Zlati", "Lovech", 8900.0, new Provider[]{katq});
@@ -87,7 +84,7 @@ public class Main {
 
         System.out.println(katq.getProducts());
         oborot(georgi, katq);
-  */
+*/
     }
 
     public static LinkedHashMap<String, Integer> makeProducts() {

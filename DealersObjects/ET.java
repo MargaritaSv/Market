@@ -20,6 +20,10 @@ public class ET extends Dealer {
         this.setProvider(new Provider[5]);
     }
 
+    public ET(String name, String address, double capital) {
+        super(name, address, capital);
+    }
+
     @Override
     public void setMarkets(Market[] markets) {
         if (markets[0] == null || markets.length > 1) {
